@@ -7,6 +7,7 @@
 ####
 
 team_name = 'Goosefuge'
+#Andrew Goldberg, Yael Gonen, Sean Fishkov, Aiden Isaacs
 strategy_name = 'Collude until betrayed'
 strategy_description = '''\
 Collude first round. Collude, unless betrayed; then always betray.'''
