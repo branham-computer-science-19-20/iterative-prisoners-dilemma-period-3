@@ -6,7 +6,8 @@
 #     move: A function that returns 'c' or 'b'
 ####
 
-team_name = 'The name the team gives to itself' # Only 10 chars displayed.
+team_name = 'Team India' # Only 10 chars displayed.
+# Sanjith Iype, Gautam Nair, Vaihbhav Gokhale, Yuva Krishnapilllai
 strategy_name = 'The name the team gives to this strategy'
 strategy_description = 'How does this strategy decide?'
     
