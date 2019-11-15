@@ -6,7 +6,8 @@
 #     move: A function that returns 'c' or 'b'
 ####
 
-team_name = 'The name the team gives to itself' # Only 10 chars displayed.
+team_name = '3/4 Asian' # Only 10 chars displayed.
+#Trent, Kemuel, Rashaun, Clark
 strategy_name = 'The name the team gives to this strategy'
 strategy_description = 'How does this strategy decide?'
     
