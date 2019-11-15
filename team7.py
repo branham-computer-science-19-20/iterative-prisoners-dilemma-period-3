@@ -7,6 +7,7 @@
 ####
 
 team_name = 'Team T # Only 10 chars displayed.
+# Put your names here
 strategy_name = 'The name the team gives to this strategy'
 strategy_description = 'How does this strategy decide?'
     
