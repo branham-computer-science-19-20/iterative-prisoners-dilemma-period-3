@@ -41,7 +41,7 @@ def move(my_history, their_history, my_score, their_score):
         return 'b'
 
     #Scenario 4: by default do what the opponent did last
-        return their_history[len(their_history)-1]
+        return their_history[-1]
 
 
     
