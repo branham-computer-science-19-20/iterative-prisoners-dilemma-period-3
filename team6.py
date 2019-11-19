@@ -6,7 +6,8 @@
 #     move: A function that returns 'c' or 'b'
 ####
 
-team_name = 'The name the team gives to itself' # Only 10 chars displayed.
+team_name = 'Goosefuge' # Only 10 chars displayed.
+#Shawn, Aiden, Andrew, Yael
 strategy_name = 'The name the team gives to this strategy'
 strategy_description = 'How does this strategy decide?'
     
@@ -17,20 +18,7 @@ def move(my_history, their_history, my_score, their_score):
     Make my move.
     Returns 'c' or 'b'. 
     '''
-    turns_passed = len(their_history)
-    print(turns_passed)
-    pattern_finder = []
-    pattern_finder += their_history[-1]
-    if len(pattern_finder) == 5:
-        iteration_length = 5
-        if ['c','b','c','b','c'] in pattern_finder:
-            while iteration_length > 0:
-                if their_history(-1) == 'c':
-                    return 'b'
-                    iteration_length += -1
-                else:
-                    return 'c'
-                    iteration_length += -1
+
     # my_history: a string with one letter (c or b) per round that has been played with this opponent.
     # their_history: a string of the same length as history, possibly empty. 
     # The first round between these two players is my_history[0] and their_history[0].
@@ -50,6 +38,17 @@ def move(my_history, their_history, my_score, their_score):
 
     return 'c'
 
+    turns_passed = len(their_history)
+ 
+    if their_history[-1] == "b":
+        return "b"
+    else:
+        return "c"
+        
+#if colludes then collude, if betrays then betray 
+#This allows the code to continue and alternate, and try to keep a fair score between the opponent and us
+
+   
     
 def test_move(my_history, their_history, my_score, their_score, result):
     '''calls move(my_history, their_history, my_score, their_score)
