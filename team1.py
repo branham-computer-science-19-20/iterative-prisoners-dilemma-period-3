@@ -11,27 +11,27 @@ strategy_name = 'The name the team gives to this strategy'
 strategy_description = 'How does this strategy decide?'
     
 def move(my_history, their_history, my_score, their_score):
-    #Scenario #1:
+    #Scenario #1: First Turn Collude
     if len(my_history)==0: #It's the first round; collude.
         return 'c'
     elif my_history[-1]=='c' and their_history[-1]=='b':
         return 'b' 
     else:
         return 'c'     
-    #Scenario #2: 
+    #Scenario #2: First Turn Betray
     if len(my_history)==0: #It's the first round; betray.
         return 'b'
     elif my_history[-1]=='b' and their_history[-1]=='c':
         return 'c' 
     else:
         return 'b' 
-    #Scenario #3:                                      
+    #Scenario #3:  If previous turn was c, then return b if score is -1.                                    
     """ Alternate 'c' and 'b' """
     if my_history[-1] == 'c':
         return 'b'
     else:
         return 'c'
-    #Scenario #4: 
+    #Scenario #4: If previous turn was b, then return b if score is -1. 
     """ Alternate 'c' and 'b' """
     if my_history[-1] == 'b':
         return 'c'
