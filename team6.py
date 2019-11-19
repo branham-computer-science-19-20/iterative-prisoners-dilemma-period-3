@@ -38,7 +38,16 @@ def move(my_history, their_history, my_score, their_score):
     
     # Analyze my_history and their_history and/or my_score and their_score.
     # Decide whether to return 'c' or 'b'.
-    
+      turns_passed = len(their_history)
+ 
+    if their_history[-1] == "b":
+        return "b"
+    else:
+        return "c"
+        
+#if colludes then collude, if betrays then betray 
+#This allows the code to continue and alternate, and try to keep a fair score between the opponent and us
+
     return 'c'
 
     
