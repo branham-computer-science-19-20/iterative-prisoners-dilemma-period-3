@@ -6,27 +6,44 @@
 #     move: A function that returns 'c' or 'b'
 ####
 
-team_name = 'The name the team gives to itself' # Only 10 chars displayed.
-strategy_name = 'The name the team gives to this strategy'
-strategy_description = 'How does this strategy decide?'
-    
-def move(my_history, their_history, my_score, their_score):
-    ''' Arguments accepted: my_history, their_history are strings.
-    my_score, their_score are ints.
-    
-    Make my move.
-    Returns 'c' or 'b'. 
-    '''
+team_name = 'Peppa Pig\'s' # Only 10 chars displayed.
+# Jake Gipstein, Sofia Baluta, Yannick Mertens, Adi Leist
+strategy_name = 'TicTakNo'
+strategy_description = 'This strategy is starting by betraying, and uses the important parts of tit for tat and then some improvements.'
 
-    # my_history: a string with one letter (c or b) per round that has been played with this opponent.
-    # their_history: a string of the same length as history, possibly empty. 
-    # The first round between these two players is my_history[0] and their_history[0].
-    # The most recent round is my_history[-1] and their_history[-1].
+yee=0    
+            
+their_history = []
+my_history = []
+my_score = 0
+their_score = 0
+
+yee=0    
+            
+def move(my_history, their_history, my_score, their_score):
+    #If they betrayed last round we betray. Scenario 1 (Whole team)
+   if len(their_history) > 1 and their_history[-1]=='b':
+       return 'b'
+    #If it is the first round betray. Scenario 2(Adi)
+   elif len(my_history) == 0:
+        return 'b'
+    #If they colluded the last two rounds then betray. Scenario 3a (Yannick)
+   elif len(their_history) > 1 and their_history[-1]=='c' and their_history[-2]=='c':
+        return 'b'
+        yee = 1
+    #This means that they colluded 2 times in a row so we betrayed last time and this time and reset yee. Scenario 3b (Yannick)
+   elif yee == 1:
+       return 'b'
+       yee = 0
+    #If their score is above 100 betray until they are below -100. Scenario 4 (Jake)
+   elif their_score >= 100:
+        while their_score > -100:
+            return 'b'
+    #If none of these, collude. Scenario 5 (Sofia)
+   else:
+        return 'c'
     
-    # Analyze my_history and their_history and/or my_score and their_score.
-    # Decide whether to return 'c' or 'b'.
-    
-    return 'c'
+ 
 
     
 def test_move(my_history, their_history, my_score, their_score, result):
@@ -65,4 +82,4 @@ if __name__ == '__main__':
               # move('bbb', 'ccc', 0, 0) returns 'b'.
               my_score=0, 
               their_score=0,
-              result='b')             
+              result='b')                         
