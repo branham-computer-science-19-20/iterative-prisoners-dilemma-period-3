@@ -6,7 +6,8 @@
 #     move: A function that returns 'c' or 'b'
 ####
 
-team_name = 'The name the team gives to itself' # Only 10 chars displayed.
+team_name = 'Team India' # Only 10 chars displayed.
+# Sanjith Iype, Gautam Nair, Vaihbhav Gokhale, Yuva Krishnapilllai
 strategy_name = 'The name the team gives to this strategy'
 strategy_description = 'How does this strategy decide?'
     
@@ -25,8 +26,25 @@ def move(my_history, their_history, my_score, their_score):
     
     # Analyze my_history and their_history and/or my_score and their_score.
     # Decide whether to return 'c' or 'b'.
-    
-    return 'c'
+ # This is our first scenario that acts on the first turn. It starts on betray the first turn.
+    if len(my_history) == 0:
+        return 'b' 
+        
+    #  This is our second scenario that acts if we are losing after 20 turns. It will always return betray if we lose after 20 turns. 
+    elif turns_value >= 20:
+        return 'b'
+        
+    #  This is our third scenario that acts if our score is at or below -2000.  If we are below -2000, we always return betray.
+    elif  my_score <= -2000:
+        return 'b'
+        
+    #  This is our fourth scenario that acts if all the other scenarios don't work. It returns their answer like an "uno reverse card".
+    else: 
+	return their_history[-1]
+
+
+
+  
 
     
 def test_move(my_history, their_history, my_score, their_score, result):
