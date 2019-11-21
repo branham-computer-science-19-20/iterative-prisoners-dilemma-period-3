@@ -12,6 +12,22 @@ strategy_name = 'The name the team gives to this strategy'
 strategy_description = 'How does this strategy decide?'
     
 def move(my_history, their_history, my_score, their_score):
+     #on the first turn collude
+    if len(their_history) == 0:
+        return 'c'
+    else:
+        #every 42 rounds we betray
+        if len(my_history)%42 == 0:
+            return 'b'
+        else: 
+            #When there's a ton of rounds we're just random
+            if len(my_history) >= 275:
+                return random.choice(['b','c'])
+            #Do what they did
+            else:
+                return their_history[-1]
+
+
     ''' Arguments accepted: my_history, their_history are strings.
     my_score, their_score are ints.
     
@@ -26,13 +42,7 @@ def move(my_history, their_history, my_score, their_score):
     
     # Analyze my_history and their_history and/or my_score and their_score.
     # Decide whether to return 'c' or 'b'.
-      turns_passed = len(their_history)
- 
-    if their_history[-1] == "b":
-        return "b"
-    else:
-        return "c"
-        
+    
 #if colludes then collude, if betrays then betray 
 #This allows the code to continue and alternate, and try to keep a fair score between the opponent and us
 
