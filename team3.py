@@ -29,10 +29,10 @@ def move(my_history, their_history, my_score, their_score):
     
     # This is our first scenario that acts on the first turn. It starts on betray the first turn.
     if len(my_history) == 0:
-        return 'b' 
+        return 'c' 
         
     #  This is our second scenario that acts if we are losing after 20 turns. It will always return betray if we lose after 20 turns. 
-    elif turns_value >= 20:
+    elif turns_value >= 80 and my_score < their_score:
         return 'b'
         
     #  This is our third scenario that acts if our score is at or below -2000.  If we are below -2000, we always return betray.
@@ -41,7 +41,7 @@ def move(my_history, their_history, my_score, their_score):
         
     #  This is our fourth scenario that acts if all the other scenarios don't work. It returns their answer like an "uno reverse card".
     else: 
-	return their_history[-1]
+	     return their_history[-1]
 
 
 
