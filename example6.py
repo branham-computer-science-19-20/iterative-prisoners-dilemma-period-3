@@ -21,13 +21,4 @@ def move(my_history, their_history, my_score, their_score):
     
     Returns 'c' or 'b' for collude or betray.
     '''
-    turns_passed = len(their_history)
-    if turns_passed == 0:
-        #scenario 1 is our first turn
-        return 'c'
-    elif:
-        # scenario 2 if they collude 3 times we collude twice  
-    elif:
-        #scenario 3 if they have patterns like bcbc
-    else:
-        #scenario 4 do what they do
+    return 'b'
