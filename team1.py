@@ -11,7 +11,7 @@ team_name = '3/4 Asian' # Only 10 chars displayed.
 strategy_name = 'Basic Bois'
 strategy_description = 'How does this strategy decide?'
     
-  def move(my_history, their_history, my_score, their_score):
+def move(my_history, their_history, my_score, their_score):
     """ Alternate 'C' and 'D' """
     if my_history[-1] == 'C':
         return 'D'
