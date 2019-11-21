@@ -1,16 +1,17 @@
+import random
 ####
 # Each team's file must define four tokens:
 #     team_name: a string
 #     strategy_name: a string
 #     strategy_description: a string
 #     move: A function that returns 'c' or 'b'
-####
+####    
 
 team_name = 'Goosefuge' # Only 10 chars displayed.
 #Shawn, Aiden, Andrew, Yael
-strategy_name = 'The name the team gives to this strategy'
-strategy_description = 'How does this strategy decide?'
-    
+strategy_name = 'multi appraoch'
+strategy_description = 'based on the five or first previous outputs?'
+
 def move(my_history, their_history, my_score, their_score):
     ''' Arguments accepted: my_history, their_history are strings.
     my_score, their_score are ints.
@@ -18,7 +19,16 @@ def move(my_history, their_history, my_score, their_score):
     Make my move.
     Returns 'c' or 'b'. 
     '''
-
+    turns_passed = len(their_history)
+    pattern_finder = ''
+    if len(their_history) >= 5:
+        pattern_finder += (their_history[-5] + their_history[-4] + their_history[-3] + their_history[-2] + their_history[-1])
+    print(pattern_finder)
+    if 'bcbcb' in pattern_finder:
+        return "c"
+    if 'cbcbc' in pattern_finder:
+        return "b"
+            #aidan-this function finds the alternating pattern of cbc or bcb and reacts accordingly
     # my_history: a string with one letter (c or b) per round that has been played with this opponent.
     # their_history: a string of the same length as history, possibly empty. 
     # The first round between these two players is my_history[0] and their_history[0].
@@ -26,8 +36,8 @@ def move(my_history, their_history, my_score, their_score):
     
     # Analyze my_history and their_history and/or my_score and their_score.
     # Decide whether to return 'c' or 'b'.
-      turns_passed = len(their_history)
- 
+   
+    print(turns_passed)
     if their_history[-1] == "b":
         return "b"
     else:
@@ -65,16 +75,29 @@ def test_move(my_history, their_history, my_score, their_score, result):
             ") returned " + "'" + real_result + "'" +
             " and should have returned '" + result + "'")
         return False
+    #what we do on out first turn is collude
+    if len(their_history) == 0:
+        return 'c'
+    else:
+        #every 43 rounds we betray
+        if len(my_history)%5 == 0:
+            return 'b'
+        else:            
+            return their_history[-1]
+                
+            
+            
 
-if __name__ == '__main__':
+
+
+    if __name__ == '__main__':
      
-    # Test 1: Betray on first move.
-    if test_move(my_history='',
-              their_history='', 
-              my_score=0,
-              their_score=0,
-              result='b'):
-         print 'Test passed'
+    # Test 1: Betray on first move.if test_move(my_history='',
+            their_history='', 
+            my_score=0,
+            their_score=0,
+            result='b'
+            print 'Test passed'
      # Test 2: Continue betraying if they collude despite being betrayed.
     test_move(my_history='bbb',
               their_history='ccc', 
