@@ -26,7 +26,8 @@ def move(my_history, their_history, my_score, their_score):
     
     # Analyze my_history and their_history and/or my_score and their_score.
     # Decide whether to return 'c' or 'b'.
- # This is our first scenario that acts on the first turn. It starts on betray the first turn.
+    
+    # This is our first scenario that acts on the first turn. It starts on betray the first turn.
     if len(my_history) == 0:
         return 'b' 
         
