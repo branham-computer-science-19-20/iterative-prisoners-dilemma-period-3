@@ -6,10 +6,6 @@
 #     move: A function that returns 'c' or 'b'
 ####
 
-<<<<<<< HEAD
-
-=======
->>>>>>> master
 team_name = "ponyjar"' 
 # Only 10 chars displayed.
 # Andrei Ivanou, Rylen Medina, Ethan Peglow, Oleksandr Gorpynich
