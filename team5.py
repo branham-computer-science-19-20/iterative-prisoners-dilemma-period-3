@@ -37,7 +37,7 @@ def move(my_history, their_history, my_score, their_score):
         return 'b'
 
     #Scenario 3: betray if the opponent's score is 300 or more greater than our score starting on round 250
-    if theirScore-myScore >= 300 and len(my_history) >= 249:
+    if their_score-my_score >= 300 and len(my_history) >= 249:
         return 'b'
 
     #Scenario 4: by default do what the opponent did last
