@@ -26,7 +26,23 @@ def move(my_history, their_history, my_score, their_score):
     # Analyze my_history and their_history and/or my_score and their_score.
     # Decide whether to return 'c' or 'b'.
     
-    return 'c'
+    #modified tit for tat
+
+    #Scenario 1: collude on first move
+    if len(my_history) == 0:
+        return 'c'
+
+    #Scenario 2: betray on move 299 or 300
+    if len(my_history) >= 298:
+        return 'b'
+
+    #Scenario 3: betray if the opponent's score is 300 or more greater than our score starting on round 250
+    if theirScore-myScore >= 300 and len(my_history) >= 249:
+        return 'b'
+
+    #Scenario 4: by default do what the opponent did last
+        return their_history[-1]
+
 
     
 def test_move(my_history, their_history, my_score, their_score, result):
