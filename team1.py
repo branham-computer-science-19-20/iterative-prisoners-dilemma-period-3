@@ -19,12 +19,32 @@ strategy_description = 'How does this strategy decide?'
         return 'C'
     
 def move(my_history, their_history, my_score, their_score):
-    ''' Arguments accepted: my_history, their_history are strings.
-    my_score, their_score are ints.
-    
-    Make my move.
-    Returns 'c' or 'b'. 
-    '''
+    #Scenario #1: First Turn Collude
+    if len(my_history)==0: #It's the first round; collude.
+        return 'c'
+    elif my_history[-1]=='c' and their_history[-1]=='b':
+        return 'b' 
+    else:
+        return 'c'     
+    #Scenario #2: First Turn Betray
+    if len(my_history)==0: #It's the first round; betray.
+        return 'b'
+    elif my_history[-1]=='b' and their_history[-1]=='c':
+        return 'c' 
+    else:
+        return 'b' 
+    #Scenario #3:  If previous turn was c, then return b if score is -1.                                    
+    """ Alternate 'c' and 'b' """
+    if my_history[-1] == 'c':
+        return 'b'
+    else:
+        return 'c'
+    #Scenario #4: If previous turn was b, then return b if score is -1. 
+    """ Alternate 'c' and 'b' """
+    if my_history[-1] == 'b':
+        return 'c'
+    else:
+        return 'b'
 
     # my_history: a string with one letter (c or b) per round that has been played with this opponent.
     # their_history: a string of the same length as history, possibly empty. 
