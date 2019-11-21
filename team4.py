@@ -9,16 +9,14 @@
 team_name = 'Peppa Pig\'s' # Only 10 chars displayed.
 # Jake Gipstein, Sofia Baluta, Yannick Mertens, Adi Leist
 strategy_name = 'TicTakNo'
-strategy_description = 'This strategy is starting by betraying, and uses the important parts of tit for tat and then some improvements.'
-
-yee=0    
+strategy_description = 'This strategy is starting by betraying, and uses the important parts of tit for tat and then some improvements.'   
             
 their_history = []
 my_history = []
 my_score = 0
 their_score = 0
 
-yee=0    
+    
             
 def move(my_history, their_history, my_score, their_score):
     #If they betrayed last round we betray. Scenario 1 (Whole team)
@@ -27,18 +25,12 @@ def move(my_history, their_history, my_score, their_score):
     #If it is the first round betray. Scenario 2(Adi)
    elif len(my_history) == 0:
         return 'b'
-    #If they colluded the last two rounds then betray. Scenario 3a (Yannick)
+    #If they colluded the last two rounds then betray. Scenario 3 (Yannick)
    elif len(their_history) > 1 and their_history[-1]=='c' and their_history[-2]=='c':
         return 'b'
-        yee = 1
-    #This means that they colluded 2 times in a row so we betrayed last time and this time and reset yee. Scenario 3b (Yannick)
-   elif yee == 1:
-       return 'b'
-       yee = 0
-    #If their score is above 100 betray until they are below -100. Scenario 4 (Jake)
+    #If their score is above 100 betray. Scenario 4 (Jake)
    elif their_score >= 100:
-        while their_score > -100:
-            return 'b'
+       return 'b'
     #If none of these, collude. Scenario 5 (Sofia)
    else:
         return 'c'
@@ -83,3 +75,7 @@ if __name__ == '__main__':
               my_score=0, 
               their_score=0,
               result='b')                         
+    
+ 
+
+    

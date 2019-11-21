@@ -7,7 +7,11 @@
 ####
 
 team_name = 'Team India' # Only 10 chars displayed.
+<<<<<<< HEAD
+# Gautam Nair, Vaibhav, Yuva, Sanjith
+=======
 # Sanjith Iype, Gautam Nair, Vaihbhav Gokhale, Yuva Krishnapilllai
+>>>>>>> master
 strategy_name = 'The name the team gives to this strategy'
 strategy_description = 'How does this strategy decide?'
     
@@ -18,6 +22,15 @@ def move(my_history, their_history, my_score, their_score):
     Make my move.
     Returns 'c' or 'b'. 
     '''
+    turns_value = len(my_history)
+    if len(my_history) == 0:
+        return 'b'
+    elif turns_value >= 20:
+        return 'b'
+	elif  my_score <= -2000:
+        return 'b' 
+    else: 
+	    return their_history[-1]
 
     # my_history: a string with one letter (c or b) per round that has been played with this opponent.
     # their_history: a string of the same length as history, possibly empty. 
@@ -27,6 +40,9 @@ def move(my_history, their_history, my_score, their_score):
     # Analyze my_history and their_history and/or my_score and their_score.
     # Decide whether to return 'c' or 'b'.
     
+<<<<<<< HEAD
+   
+=======
     # This is our first scenario that acts on the first turn. It starts on betray the first turn.
     if len(my_history) == 0:
         return 'c' 
@@ -46,6 +62,7 @@ def move(my_history, their_history, my_score, their_score):
 
 
   
+>>>>>>> master
 
     
 def test_move(my_history, their_history, my_score, their_score, result):
