@@ -6,7 +6,7 @@
 #     move: A function that returns 'c' or 'b'
 ####
 
-team_name = "ponyjar"' 
+team_name = "ponyjar"
 # Only 10 chars displayed.
 # Andrei Ivanou, Rylen Medina, Ethan Peglow, Oleksandr Gorpynich
 strategy_name = 'The name the team gives to this strategy'
